@@ -1,0 +1,65 @@
+<h1>My Sweet Cake Home Work</h1>
+
+<form #myForm="ngForm" (submit)="handleSubmit(myForm.value)">
+    <label>
+        <p> Enter your cake's name: </p>
+        <input type="text" ngModel name="cakeName" placeholder="Your Cake Name">
+    </label>
+    <br>
+    <label>
+        <p>Choose your kind of cake:</p>
+        <input type="radio" ngModel id="chocolate" name="cakeType" value="Chocolate">
+        <label for="chocolate">Chocolate Cake</label><br>
+        <input type="radio" ngModel id="cheese" name="cakeType" value="Cheese">
+        <label for="cheese">Cheese Cake</label><br>
+        <input type="radio" ngModel id="carrot" name="cakeType" value="Carrot">
+        <label for="carrot">Carrot Cake</label><br>
+    </label>
+
+    <label>
+        <p>Enter tags for your cake in a row:</p>
+        <input type="text" ngModel name="tags" placeholder="tag1, tag2, ...">
+    </label>
+    <br>
+    <label>
+        <button>Submit</button>
+    </label>
+</form>
+
+<div>
+    <h3>Cake Name: {{cake.cakeName}}</h3>
+    <h3>Cake Type: {{cake.cakeType}}</h3>
+</div>
+
+<ul>
+    <li *ngFor="let tag of tagsArr;">{{tag}}</li>
+</ul>
+
+<div [ngSwitch]="cake.cakeType">
+    <img *ngSwitchCase="'Chocolate'"
+        src="https://img.delicious.com.au/ke4nuXCY/del/2020/03/the-worlds-healthiest-chocolate-cake-128972-2.jpg"
+        width="100">
+    <img *ngSwitchCase="'Cheese'" src="https://s3-us-west-2.amazonaws.com/melingoimages/Images/15662.jpg" width="100">
+    <img *ngSwitchCase="'Carrot'"
+        src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/2/16/0/ry0401_carrotcake.jpg.rend.hgtvcom.616.462.suffix/1552488933139.jpeg"
+        width="100">
+</div>
+<div *ngIf="isItCarrotCake">
+    For the carrot cake:
+    <ul>
+        <li>2 cups (250 grams) all-purpose flour (spooned & leveled)
+        <li>2 teaspoons baking powder</li>
+        <li>1 teaspoon baking soda</li>
+        <li>1 and 1/2 teaspoons ground cinnamon</li>
+        <li>1/2 teaspoon ground ginger</li>
+        <li>1/4 teaspoon ground nutmeg</li>
+        <li>1/2 teaspoon salt</li>
+        <li>3/4 cup (180ml) canola or vegetable oil</li>
+        <li>4 large eggs room temperature</li>
+        <li>1 and 1/2 cups (300 grams) light brown sugar</li>
+        <li>1/2 cup (100 grams) granulated sugar</li>
+        <li> 1/2 cup (125 grams) unsweetened applesauce</li>
+        <li> 1 teaspoon pure vanilla extract</li>
+        <li> 3 cups (300 grams) grated carrots, lightly packed</li>
+    </ul>
+</div>
